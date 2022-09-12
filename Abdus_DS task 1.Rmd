@@ -1,0 +1,27 @@
+---
+title: "Abdus_DS Course"
+author: "Abdus Samad"
+date: "2022-09-12"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#Read Dataset
+
+# Read Dataset
+
+```{r}
+
+require(tidyverse)
+
+
+```
+```{r}
+course_data <- read_csv("Data/Data - DS C1 Course.csv")
+
+
+```
+
