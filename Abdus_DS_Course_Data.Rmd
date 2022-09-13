@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r}
 
 library(tidyverse)
-
+library(ggplot2)
 
 ```
 ## Importing the Data
@@ -70,4 +70,18 @@ summary(course_data)
 colnames(course_data)
 
 ```
+
+now we will check the null vlaues in our dataset
+
+```{r}
+is.na(course_data)
+
+```
+```{r}
+
+ggplot(course_data, aes(x = Age, y = `Which City are you currently residing in?`))+
+  geom_point()
+
+```
+
 
