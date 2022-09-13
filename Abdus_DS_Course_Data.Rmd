@@ -1,5 +1,5 @@
 ---
-title: "Abdus_DS Course"
+title: "DS Course Data"
 author: "Abdus Samad"
 date: "2022-09-12"
 output: html_document
@@ -9,19 +9,22 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-#Read Dataset
-
 # Read Dataset
 
 ```{r}
 
-require(tidyverse)
+library(tidyverse)
+
+
+```
+## Importing the Data
+
+```{r, warning=FALSE , message=FALSE}
+ds_course_data <- read_csv("Data/Data - DS C1 Course.csv")
 
 
 ```
 ```{r}
-course_data <- read_csv("Data/Data - DS C1 Course.csv")
-
 
 ```
 
