@@ -20,7 +20,7 @@ library(tidyverse)
 ## Importing the Data
 
 ```{r, warning=FALSE , message=FALSE}
-ds_course_data <- read_csv("Data/Data - DS C1 Course.csv")
+course_data <- read_csv("Data/Data - DS C1 Course.csv")
 
 
 ```
@@ -54,5 +54,20 @@ library(reticulate)
 for i in range(10):
    print(i)
    
+```
+## Data Summary
+
+
+```{r , echo=FALSE}
+
+summary(course_data)
+ 
+```
+
+## Attribute name of the Dataset
+
+```{r , echo= FALSE}
+colnames(course_data)
+
 ```
 

@@ -383,7 +383,7 @@ pre code {
 ## ✖ dplyr::lag()    masks stats::lag()</code></pre>
 <div id="importing-the-data" class="section level2">
 <h2>Importing the Data</h2>
-<pre class="r"><code>ds_course_data &lt;- read_csv(&quot;Data/Data - DS C1 Course.csv&quot;)</code></pre>
+<pre class="r"><code>course_data &lt;- read_csv(&quot;Data/Data - DS C1 Course.csv&quot;)</code></pre>
 </div>
 <div id="exploratory-data-analysis-eda" class="section level2">
 <h2>Exploratory Data Analysis (EDA)</h2>
@@ -408,6 +408,217 @@ for i in range(10):
 ## 7
 ## 8
 ## 9</code></pre>
+</div>
+<div id="data-summary" class="section level2">
+<h2>Data Summary</h2>
+<pre><code>##   Timestamp           Student ID   
+##  Length:247         Min.   :  1.0  
+##  Class :character   1st Qu.: 62.5  
+##  Mode  :character   Median :124.0  
+##                     Mean   :124.0  
+##                     3rd Qu.:185.5  
+##                     Max.   :247.0  
+##                                    
+##  Do you understand that this is a paid course ?...3 Course Fee Email  
+##  Length:247                                         Length:247        
+##  Class :character                                   Class :character  
+##  Mode  :character                                   Mode  :character  
+##                                                                       
+##                                                                       
+##                                                                       
+##                                                                       
+##    Date sent            Payment          Payment Receipt Sent
+##  Min.   :2022-08-23   Length:247         Length:247          
+##  1st Qu.:2022-08-25   Class :character   Class :character    
+##  Median :2022-08-26   Mode  :character   Mode  :character    
+##  Mean   :2022-08-26                                          
+##  3rd Qu.:2022-08-27                                          
+##  Max.   :2022-09-01                                          
+##  NA&#39;s   :9                                                   
+##  How and where did you hear about this course?
+##  Length:247                                   
+##  Class :character                             
+##  Mode  :character                             
+##                                               
+##                                               
+##                                               
+##                                               
+##  Which Country are you currently residing in?
+##  Length:247                                  
+##  Class :character                            
+##  Mode  :character                            
+##                                              
+##                                              
+##                                              
+##                                              
+##  Which City are you currently residing in?    Gender         
+##  Length:247                                Length:247        
+##  Class :character                          Class :character  
+##  Mode  :character                          Mode  :character  
+##                                                              
+##                                                              
+##                                                              
+##                                                              
+##      Age            Are you currently attending University / College?
+##  Length:247         Length:247                                       
+##  Class :character   Class :character                                 
+##  Mode  :character   Mode  :character                                 
+##                                                                      
+##                                                                      
+##                                                                      
+##                                                                      
+##  Latest Degree Completed or in Progress?
+##  Length:247                             
+##  Class :character                       
+##  Mode  :character                       
+##                                         
+##                                         
+##                                         
+##                                         
+##  Name of University or College currently or previously attended?
+##  Length:247                                                     
+##  Class :character                                               
+##  Mode  :character                                               
+##                                                                 
+##                                                                 
+##                                                                 
+##                                                                 
+##  Discipline of Degree?
+##  Length:247           
+##  Class :character     
+##  Mode  :character     
+##                       
+##                       
+##                       
+##                       
+##  Have you taken any foundational course in data science / econometrics / statistics / computer science?
+##  Length:247                                                                                            
+##  Class :character                                                                                      
+##  Mode  :character                                                                                      
+##                                                                                                        
+##                                                                                                        
+##                                                                                                        
+##                                                                                                        
+##  What programming language(s) are you most comfortable in (R, Python, Java, JS, etc.)? If none please type &quot;None&quot;.
+##  Length:247                                                                                                       
+##  Class :character                                                                                                 
+##  Mode  :character                                                                                                 
+##                                                                                                                   
+##                                                                                                                   
+##                                                                                                                   
+##                                                                                                                   
+##  Prior Work Experience in Data Science or Machine Learning
+##  Length:247                                               
+##  Class :character                                         
+##  Mode  :character                                         
+##                                                           
+##                                                           
+##                                                           
+##                                                           
+##  Primary Reason for taking this course?
+##  Length:247                            
+##  Class :character                      
+##  Mode  :character                      
+##                                        
+##                                        
+##                                        
+##                                        
+##  Do you understand that this is a paid course ?...21
+##  Length:247                                         
+##  Class :character                                   
+##  Mode  :character                                   
+##                                                     
+##                                                     
+##                                                     
+##                                                     
+##  Prior Formal Education (course teaching or using R, university assignments, coding projects, course work, etc.) in R?
+##  Length:247                                                                                                           
+##  Class :character                                                                                                     
+##  Mode  :character                                                                                                     
+##                                                                                                                       
+##                                                                                                                       
+##                                                                                                                       
+##                                                                                                                       
+##  Prior Formal Education (course teaching or using Python, university assignments, coding projects, course work, etc.) in Python?
+##  Length:247                                                                                                                     
+##  Class :character                                                                                                               
+##  Mode  :character                                                                                                               
+##                                                                                                                                 
+##                                                                                                                                 
+##                                                                                                                                 
+##                                                                                                                                 
+##  Prior Work Experience in R. Prior Work Experience in Python.
+##  Length:247                  Length:247                      
+##  Class :character            Class :character                
+##  Mode  :character            Mode  :character                
+##                                                              
+##                                                              
+##                                                              
+##                                                              
+##  Personal Education or Knowledge (learning R on your own and/or doing personal projects, etc.) in R?
+##  Length:247                                                                                         
+##  Class :character                                                                                   
+##  Mode  :character                                                                                   
+##                                                                                                     
+##                                                                                                     
+##                                                                                                     
+##                                                                                                     
+##  Personal Education or Knowledge (learning Python on your own and/or doing personal projects, etc.) in Python?
+##  Length:247                                                                                                   
+##  Class :character                                                                                             
+##  Mode  :character                                                                                             
+##                                                                                                               
+##                                                                                                               
+##                                                                                                               
+##                                                                                                               
+##  Do you have a LinkedIn Account?
+##  Length:247                     
+##  Class :character               
+##  Mode  :character               
+##                                 
+##                                 
+##                                 
+##                                 
+##  Do you have any feedback, thoughts, or comments you would like to share?
+##  Length:247                                                              
+##  Class :character                                                        
+##  Mode  :character                                                        
+##                                                                          
+##                                                                          
+##                                                                          
+## </code></pre>
+</div>
+<div id="attribute-name-of-the-dataset" class="section level2">
+<h2>Attribute name of the Dataset</h2>
+<pre><code>##  [1] &quot;Timestamp&quot;                                                                                                                      
+##  [2] &quot;Student ID&quot;                                                                                                                     
+##  [3] &quot;Do you understand that this is a paid course ?...3&quot;                                                                             
+##  [4] &quot;Course Fee Email&quot;                                                                                                               
+##  [5] &quot;Date sent&quot;                                                                                                                      
+##  [6] &quot;Payment&quot;                                                                                                                        
+##  [7] &quot;Payment Receipt Sent&quot;                                                                                                           
+##  [8] &quot;How and where did you hear about this course?&quot;                                                                                  
+##  [9] &quot;Which Country are you currently residing in?&quot;                                                                                   
+## [10] &quot;Which City are you currently residing in?&quot;                                                                                      
+## [11] &quot;Gender&quot;                                                                                                                         
+## [12] &quot;Age&quot;                                                                                                                            
+## [13] &quot;Are you currently attending University / College?&quot;                                                                              
+## [14] &quot;Latest Degree Completed or in Progress?&quot;                                                                                        
+## [15] &quot;Name of University or College currently or previously attended?&quot;                                                                
+## [16] &quot;Discipline of Degree?&quot;                                                                                                          
+## [17] &quot;Have you taken any foundational course in data science / econometrics / statistics / computer science?&quot;                         
+## [18] &quot;What programming language(s) are you most comfortable in (R, Python, Java, JS, etc.)? If none please type \&quot;None\&quot;.&quot;            
+## [19] &quot;Prior Work Experience in Data Science or Machine Learning&quot;                                                                      
+## [20] &quot;Primary Reason for taking this course?&quot;                                                                                         
+## [21] &quot;Do you understand that this is a paid course ?...21&quot;                                                                            
+## [22] &quot;Prior Formal Education (course teaching or using R, university assignments, coding projects, course work, etc.) in R?&quot;          
+## [23] &quot;Prior Formal Education (course teaching or using Python, university assignments, coding projects, course work, etc.) in Python?&quot;
+## [24] &quot;Prior Work Experience in R.&quot;                                                                                                    
+## [25] &quot;Prior Work Experience in Python.&quot;                                                                                               
+## [26] &quot;Personal Education or Knowledge (learning R on your own and/or doing personal projects, etc.) in R?&quot;                            
+## [27] &quot;Personal Education or Knowledge (learning Python on your own and/or doing personal projects, etc.) in Python?&quot;                  
+## [28] &quot;Do you have a LinkedIn Account?&quot;                                                                                                
+## [29] &quot;Do you have any feedback, thoughts, or comments you would like to share?&quot;</code></pre>
 </div>
 </div>
 
