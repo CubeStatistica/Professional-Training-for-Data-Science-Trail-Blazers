@@ -24,7 +24,35 @@ ds_course_data <- read_csv("Data/Data - DS C1 Course.csv")
 
 
 ```
-```{r}
+## Exploratory Data Analysis (EDA)
 
+```{r EDA, echo=FALSE}
+
+
+```
+
+## Running Python in R
+
+We will demonstrate how to run Python within R.
+
+
+```{r}
+library(reticulate)
+```
+
+
+```{python}
+# import pandas as pd
+# import numpy as np
+
+```
+
+
+
+```{python}
+
+for i in range(10):
+   print(i)
+   
 ```
 
