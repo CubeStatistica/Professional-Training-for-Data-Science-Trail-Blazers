@@ -85,3 +85,53 @@ ggplot(course_data, aes(x = Age, y = `Which City are you currently residing in?`
 ```
 
 
+```{r}
+
+ print("first R lesson")
+
+```
+```{r}
+print(23)
+
+```
+```{r}
+x <- "first R lesson"
+x
+```
+
+```{r}
+
+z <- "first"
+
+cat(z, "R lesson")
+sprintf("%s R lesson.", z)
+
+```
+
+```{r}
+y <- "Cube"
+cat(y, "Statistica Cohort 1.")
+sprintf("%s Statistica Cohort 1.",y)
+
+```
+```{r}
+
+course_data %>% select(Age) %>% n_distinct()
+
+```
+```{r}
+ggplot(course_data, aes(x=Age, y = Gender) )+
+  geom_bar(stat = "identity")
+
+```
+```{r}
+course_data %>% group_by(`Do you understand that this is a paid course ?...21`) %>% count()
+
+```
+
+```{r}
+ggplot(course_data, aes(x = `Do you understand that this is a paid course ?...21`, y= Gender))+
+  geom_bar(stat = "identity")
+
+```
+
