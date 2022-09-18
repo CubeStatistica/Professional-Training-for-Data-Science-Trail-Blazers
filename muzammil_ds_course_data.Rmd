@@ -34,19 +34,185 @@ We will demonstrate how python will run in RStudio
 library("reticulate")
 ```
 
-```{python}
-
-# import pandas as pd
-# import numpy as np
-
-
-```
-
+Importing libraries
 
 ```{python}
 
-for i in range(10):
-  print (i)
-  
-```
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
 
+
+ds_course_data = pd.read_csv("Data/Data - DS C1 Course.csv")
+ds_course_data.head()
+
+```
+Data Cleaning
+
+```{python}
+##shape of the data
+ds_course_data.shape
+```
+```{python}
+##attributes of the data
+ds_course_data.columns
+
+```
+```{python}
+##information of the data
+ds_course_data.info()
+
+```
+Missing Values
+
+```{python}
+# missing values percentage
+missing_values_series=ds_course_data.isnull().sum()
+missing_columns=missing_values_series[missing_values_series>0]
+missing_columns_df=(missing_columns.sort_values()/ds_course_data.shape[0])*100
+x_col="Attributes"
+y_col="Missing Pct %"
+missing_columns_df=pd.DataFrame(data=np.column_stack([missing_columns_df.index,missing_columns_df.values]),columns=[x_col,y_col])
+missing_columns_df
+
+```
+### Descriptive Statistics
+
+Do you understand that this is a paid course ?
+```{python}
+
+
+ds_course_data['Do you understand that this is a paid course ?'].describe()
+
+data_ = ds_course_data.groupby('Do you understand that this is a paid course ?')['Do you understand that this is a paid course ?'].count()
+data_ = pd.DataFrame({'Do you understand that this is a paid course ?':data_.index, 'Count':data_.values})
+plt.pie(data_['Count'],labels = data_['Do you understand that this is a paid course ?'],autopct='%1.1f%%',shadow=True);
+plt.title('Do you understand that this is a paid course ?')
+
+```
+Gender Analysis
+```{python}
+
+data_ = ds_course_data.groupby('Gender')['Gender'].count()
+data_ = pd.DataFrame({'Gender':data_.index, 'Count':data_.values})
+data_
+
+data_ = ds_course_data.groupby('Gender')['Gender'].count()
+data_ = pd.DataFrame({'Gender':data_.index, 'Count':data_.values})
+plt.pie(data_['Count'],labels = data_['Gender'],autopct='%1.1f%%',shadow=True);
+plt.title('Gender Analysis')
+```
+Age Distribution
+```{python}
+data_ = ds_course_data.groupby('Age')['Age'].count()
+data_ = pd.DataFrame({'Age':data_.index, 'Count':data_.values})
+data_
+
+
+dfy=ds_course_data.groupby('Age')['Age'].count()
+data_age = pd.DataFrame({'Age':dfy.index, 'Count':dfy.values})
+df_age=data_age.sort_values('Count', ascending=False)
+
+df_age=df_age.sort_values('Count', ascending=False)
+ax=df_age.plot.bar(x='Age', y='Count',figsize=(15, 8), color='#d4403b')
+plt.title('Age Distribution', fontsize=14)
+plt.xlabel('Age')
+
+total = len(df_age)
+for p in ax.patches:
+ percentage = '{:.0f}'.format(p.get_height())
+ x = p.get_x() + p.get_width()/8
+ y = p.get_y() + p.get_height()+0.02
+ ax.annotate(percentage, (x, y))
+plt.show()
+
+```
+How and where did you hear about this course? 
+```{python}
+data_ = ds_course_data.groupby('How and where did you hear about this course?')['How and where did you hear about this course?'].count()
+data_ = pd.DataFrame({'How and where did you hear about this course?':data_.index, 'Count':data_.values})
+data_
+
+```
+Which Country are you currently residing in?
+```{python}
+data_ = ds_course_data.groupby('Which Country are you currently residing in?')['Which Country are you currently residing in?'].count()
+data_ = pd.DataFrame({'Which Country are you currently residing in?':data_.index, 'Count':data_.values})
+data_
+
+
+order = ds_course_data['Which Country are you currently residing in?'].value_counts(ascending=False).index
+ax = sns.countplot(y="Which Country are you currently residing in?", data=ds_course_data, order=order)
+plt.title('Which Country are you currently residing in?', fontsize=14)
+plt.xlabel('Number of students')
+total = len(ds_course_data['Which Country are you currently residing in?'])
+for p in ax.patches:
+ percentage = '{:.0f}'.format(p.get_width())
+ x = p.get_x() + p.get_width() + 0.02
+ y = p.get_y() + p.get_height()/2
+ ax.annotate(percentage, (x, y))
+plt.show()
+
+```
+Which City are you currently residing in?
+```{python}
+data_ = ds_course_data.groupby('Which City are you currently residing in?')['Which City are you currently residing in?'].count()
+data_ = pd.DataFrame({'Which City are you currently residing in?':data_.index, 'Count':data_.values})
+data_
+
+
+order = ds_course_data['Which City are you currently residing in?'].value_counts(ascending=False).index
+ax = sns.countplot(y="Which City are you currently residing in?", data=ds_course_data, order=order)
+plt.title('Which City are you currently residing in?', fontsize=14)
+plt.xlabel('Number of students')
+total = len(ds_course_data['Which City are you currently residing in?'])
+for p in ax.patches:
+ percentage = '{:.0f}'.format(p.get_width())
+ x = p.get_x() + p.get_width() + 0.02
+ y = p.get_y() + p.get_height()/2
+ ax.annotate(percentage, (x, y))
+plt.show()
+```
+Are you currently attending University / College?
+```{python}
+data_ = ds_course_data.groupby('Are you currently attending University / College?')['Are you currently attending University / College?'].count()
+data_ = pd.DataFrame({'Are you currently attending University / College?':data_.index, 'Count':data_.values})
+data_
+
+data_ = ds_course_data.groupby('Are you currently attending University / College?')['Are you currently attending University / College?'].count()
+data_ = pd.DataFrame({'Are you currently attending University / College?':data_.index, 'Count':data_.values})
+plt.pie(data_['Count'],labels = data_['Are you currently attending University / College?'],autopct='%1.1f%%',shadow=True);
+plt.title('Are you currently attending University / College?')
+```
+Latest Degree Completed or in Progress?
+```{python}
+data_ = ds_course_data.groupby('Latest Degree Completed or in Progress?')['Latest Degree Completed or in Progress?'].count()
+data_ = pd.DataFrame({'Latest Degree Completed or in Progress?':data_.index, 'Count':data_.values})
+data_
+
+```
+Name of University or College currently or previously attended?
+```{python}
+order = ds_course_data['Name of University or College currently or previously attended?'].value_counts(ascending=False).index
+ax = sns.countplot(y="Name of University or College currently or previously attended?", data=ds_course_data, order=order)
+plt.title('Name of University or College currently or previously attended?', fontsize=14)
+plt.xlabel('Number of students')
+total = len(ds_course_data['Name of University or College currently or previously attended?'])
+for p in ax.patches:
+ percentage = '{:.0f}'.format(p.get_width())
+ x = p.get_x() + p.get_width() + 0.02
+ y = p.get_y() + p.get_height()/2
+ ax.annotate(percentage, (x, y))
+plt.show()
+
+```
+Prior Work Experience in Data Science or Machine Learning
+```{python}
+data_ = ds_course_data.groupby('Prior Work Experience in Data Science or Machine Learning')['Prior Work Experience in Data Science or Machine Learning'].count()
+data_ = pd.DataFrame({'Prior Work Experience in Data Science or Machine Learning':data_.index, 'Count':data_.values})
+data_
+
+
+
+```
