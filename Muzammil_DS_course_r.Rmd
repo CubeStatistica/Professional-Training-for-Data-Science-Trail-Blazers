@@ -1,0 +1,68 @@
+---
+title: "Muzammil_DS_Course"
+author: "Syed Muzammil Iqbal"
+date: "2022-09-20"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#Read Dataset
+
+```{r}
+require(tidyverse)
+
+```
+```{r}
+
+course_data <- read_csv("Data/Data - DS C1 Course.csv")
+
+```
+
+## Data Summary
+
+```{r}
+summary(course_data)
+
+
+```
+## Data Column Names
+
+```{r, echo=FALSE}
+colnames(course_data)
+
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
