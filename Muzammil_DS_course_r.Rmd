@@ -46,18 +46,33 @@ is.na(course_data)
 
 ggplot(course_data, aes(Age, "Which Country are you currently residing in?"))+
   geom_point()
-  
+
+```
+```{r}
+ggplot(course_data, aes(Age, "Which Country are you currently residing in?"))+
+  geom_bar(stat="identity")
+
+```
+
+```{r}
+course_data %>% select(Age) %>% n_distinct()
 
 
 ```
 
 
+```{r}
+course_data %>% group_by(`Do you understand that this is a paid course ?...3`) %>% count()
 
 
+```
+
+```{r}
+ggplot(course_data, aes(`Do you understand that this is a paid course ?...3`, Gender)) +
+  geom_bar(stat = "identity")
 
 
-
-
+```
 
 
 
