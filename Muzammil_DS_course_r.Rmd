@@ -12,8 +12,9 @@ knitr::opts_chunk$set(echo = TRUE)
 #Read Dataset
 
 ```{r}
-require(tidyverse)
 
+require(tidyverse)
+require(ggplot2)
 ```
 ```{r}
 
@@ -36,7 +37,19 @@ colnames(course_data)
 
 
 ```
+```{r}
+is.na(course_data)
 
+
+```
+```{r}
+
+ggplot(course_data, aes(Age, "Which Country are you currently residing in?"))+
+  geom_point()
+  
+
+
+```
 
 
 
