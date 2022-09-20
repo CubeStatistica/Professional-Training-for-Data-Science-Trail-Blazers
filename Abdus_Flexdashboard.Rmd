@@ -9,6 +9,7 @@ output:
 ```{r setup, include=FALSE}
 library(flexdashboard)
 library(tidyverse)
+
 ```
 
 Column
@@ -18,14 +19,14 @@ Column
 
 # Importing data from csv
 ```{r}
-ds_course_data <- read_csv("Data/Data - DS C1 Course.csv")
+dfRaw <- read_csv("Data/Data - DS C1 Course.csv")
 
 ```
 
 # Summarize the data
 ```{r}
 
-head(ds_course_data)
+head(dfRaw)
 
 ```
 
@@ -47,3 +48,18 @@ Column
 Column
 -----------------------------------------------------------------------
 ### Abdus's Flexdashboard
+
+
+```{r}
+dfRaw %>% colnames()
+
+```
+
+
+
+```{r}
+
+dfRaw %>% group_by(Payment) %>% count()
+
+```
+
