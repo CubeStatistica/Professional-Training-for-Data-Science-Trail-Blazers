@@ -58,9 +58,54 @@ dfRaw %>% colnames()
 # Statistics
 
 
+
+```{r}
+dfRaw %>% group_by(Gender, Payment) %>% count() %>% kable()
+
+```
+# Filtering of Data 
+
+
+```{r}
+# filteirng the data of only male
+
+filter(dfRaw, Gender == "Male")
+
+```
+```{r}
+male <- filter(dfRaw, Gender == "Male")
+
+```
+
+# Arranging data by Age & Gender
+
 ```{r}
 
-dfRaw %>% group_by(Gender, Payment) %>% count() %>% kable()
+# Arrange the data by Age & Gender
+arrangeByAgeGender <- arrange(dfRaw, Age, Gender)
+head(arrangeByAgeGender)
+tail(arrangeByAgeGender)
+
+```
+
+# Select function
+
+```{r}
+selectedVars <- select(dfRaw, Gender, Age) %>% kable()
+selectedVars
+
+```
+## Mutate
+
+```{r}
+mutateAppend <- mutate(dfRaw, binary = if_else(Gender == "Male", true = 1, false = 0))
+
+```
+## Grouby & Summarize
+
+```{r}
+dfRaw$Age <- as.numeric(dfRaw$Age)
+group_by(dfRaw, Age) %>% summarize( gender_count = n(), Age_mean = mean(x = Age))
 
 ```
 

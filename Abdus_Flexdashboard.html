@@ -2154,6 +2154,2095 @@ Pending
 </tbody>
 </table>
 </div>
+<div id="filtering-of-data" class="section level1">
+<h1>Filtering of Data</h1>
+<div class="knitr-options" data-fig-width="576" data-fig-height="460">
+
+</div>
+<pre><code># A tibble: 190 × 29
+   Timestamp  Stude…¹ Do yo…² Cours…³ Date sen…⁴ Payment Payme…⁵ How a…⁶ Which…⁷
+   &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;date&gt;     &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  
+ 1 8/25/2022…       1 Yes     Sent    2022-08-26 Paid    Yes     Throug… Pakist…
+ 2 8/22/2022…       3 No      Sent    2022-08-23 Pending &lt;NA&gt;    WhatsA… Pakist…
+ 3 8/22/2022…       4 No      Sent    2022-08-23 Pending &lt;NA&gt;    Whatsa… Pakist…
+ 4 8/22/2022…       5 Yes     Sent    2022-08-23 Maybe   &lt;NA&gt;    Throug… Pakist…
+ 5 8/22/2022…       6 No      Sent    2022-08-23 Pending &lt;NA&gt;    WhatsA… Pakist…
+ 6 8/22/2022…       7 No      Sent    2022-08-23 Pending &lt;NA&gt;    Linked… Pakist…
+ 7 8/22/2022…       8 Yes     Sent    2022-08-23 Pending &lt;NA&gt;    Group   Pakist…
+ 8 8/22/2022…       9 No      Sent    2022-08-24 Pending &lt;NA&gt;    linked… Pakist…
+ 9 8/22/2022…      10 No      Sent    2022-08-24 Pending &lt;NA&gt;    Linked… Pakist…
+10 8/22/2022…      11 No      Sent    2022-08-24 Pending &lt;NA&gt;    DataCa… Pakist…
+# … with 180 more rows, 20 more variables:
+#   `Which City are you currently residing in?` &lt;chr&gt;, Gender &lt;chr&gt;, Age &lt;chr&gt;,
+#   `Are you currently attending University / College?` &lt;chr&gt;,
+#   `Latest Degree Completed or in Progress?` &lt;chr&gt;,
+#   `Name of University or College currently or previously attended?` &lt;chr&gt;,
+#   `Discipline of Degree?` &lt;chr&gt;,
+#   `Have you taken any foundational course in data science / econometrics / statistics / computer science?` &lt;chr&gt;, …</code></pre>
+<div class="knitr-options" data-fig-width="576" data-fig-height="460">
+
+</div>
+</div>
+<div id="arranging-data-by-age-gender" class="section level1">
+<h1>Arranging data by Age &amp; Gender</h1>
+<div class="knitr-options" data-fig-width="576" data-fig-height="460">
+
+</div>
+<pre><code># A tibble: 6 × 29
+  Timestamp   Stude…¹ Do yo…² Cours…³ Date sen…⁴ Payment Payme…⁵ How a…⁶ Which…⁷
+  &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;date&gt;     &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  
+1 8/22/2022 …      51 Yes     Sent    2022-08-25 Pending &lt;NA&gt;    My fri… Pakist…
+2 8/22/2022 …      96 No      Sent    2022-08-27 Pending &lt;NA&gt;    Whatsa… Pakist…
+3 8/24/2022 …     152 Yes     Sent    2022-08-24 Maybe   &lt;NA&gt;    throug… Pakist…
+4 8/25/2022 …     190 Yes     Sent    2022-08-26 Pending &lt;NA&gt;    Univer… Pakist…
+5 8/29/2022 …     229 no      Sent    2022-08-29 Paid    &lt;NA&gt;    FROM F… Pakist…
+6 8/22/2022 …      11 No      Sent    2022-08-24 Pending &lt;NA&gt;    DataCa… Pakist…
+# … with 20 more variables: `Which City are you currently residing in?` &lt;chr&gt;,
+#   Gender &lt;chr&gt;, Age &lt;chr&gt;,
+#   `Are you currently attending University / College?` &lt;chr&gt;,
+#   `Latest Degree Completed or in Progress?` &lt;chr&gt;,
+#   `Name of University or College currently or previously attended?` &lt;chr&gt;,
+#   `Discipline of Degree?` &lt;chr&gt;,
+#   `Have you taken any foundational course in data science / econometrics / statistics / computer science?` &lt;chr&gt;, …</code></pre>
+<pre><code># A tibble: 6 × 29
+  Timestamp   Stude…¹ Do yo…² Cours…³ Date sen…⁴ Payment Payme…⁵ How a…⁶ Which…⁷
+  &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;date&gt;     &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  
+1 8/25/2022 …     165 No      Sent    2022-08-26 Pending &lt;NA&gt;    Social… Saudi …
+2 8/28/2022 …     228 no      Sent    2022-08-29 Pending &lt;NA&gt;    Kaggle… Canada 
+3 8/28/2022 …     225 no      Sent    2022-08-28 Pending &lt;NA&gt;    Facebo… Pakist…
+4 9/1/2022 9…     240 &lt;NA&gt;    &lt;NA&gt;    NA         &lt;NA&gt;    &lt;NA&gt;    Whatsa… Pakist…
+5 8/20/2022 …     143 Yes     Sent    NA         Paid    Yes     Faizan  &lt;NA&gt;   
+6 9/3/2022 8…     244 &lt;NA&gt;    &lt;NA&gt;    NA         &lt;NA&gt;    &lt;NA&gt;    Faizan  Canada 
+# … with 20 more variables: `Which City are you currently residing in?` &lt;chr&gt;,
+#   Gender &lt;chr&gt;, Age &lt;chr&gt;,
+#   `Are you currently attending University / College?` &lt;chr&gt;,
+#   `Latest Degree Completed or in Progress?` &lt;chr&gt;,
+#   `Name of University or College currently or previously attended?` &lt;chr&gt;,
+#   `Discipline of Degree?` &lt;chr&gt;,
+#   `Have you taken any foundational course in data science / econometrics / statistics / computer science?` &lt;chr&gt;, …</code></pre>
+</div>
+<div id="select-function" class="section level1">
+<h1>Select function</h1>
+<div class="knitr-options" data-fig-width="576" data-fig-height="460">
+
+</div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+Gender
+</th>
+<th style="text-align:left;">
+Age
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+32
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+19
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+19
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+28
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+26
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+27
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+19
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+27
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+19
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+26
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+26
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+26
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+28
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+18
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+29
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+26
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+31
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+26
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+26
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+18
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+26
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+33
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+26
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+36
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+33
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+48
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+29
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+18
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+35
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+19
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+37
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Prefer not to say
+</td>
+<td style="text-align:left;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+26
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+19
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+19
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+27
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+27
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+28
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+27
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+31
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+28
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+27
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+26
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+33
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+39
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+28
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+37
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+19
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+30
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+34
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+37
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+40
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+26
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+Under 17
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+21
+</td>
+</tr>
+</tbody>
+</table>
+<div id="mutate" class="section level2">
+<h2>Mutate</h2>
+<div class="knitr-options" data-fig-width="576" data-fig-height="460">
+
+</div>
+</div>
+<div id="grouby-summarize" class="section level2">
+<h2>Grouby &amp; Summarize</h2>
+<div class="knitr-options" data-fig-width="576" data-fig-height="460">
+
+</div>
+<pre><code># A tibble: 24 × 3
+     Age gender_count Age_mean
+   &lt;dbl&gt;        &lt;int&gt;    &lt;dbl&gt;
+ 1    18            3       18
+ 2    19            8       19
+ 3    20           20       20
+ 4    21           46       21
+ 5    22           47       22
+ 6    23           42       23
+ 7    24           22       24
+ 8    25           17       25
+ 9    26           12       26
+10    27            6       27
+# … with 14 more rows</code></pre>
+</div>
+</div>
 
 </div>
 
