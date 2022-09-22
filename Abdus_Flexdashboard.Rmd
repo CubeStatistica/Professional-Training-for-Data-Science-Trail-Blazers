@@ -13,23 +13,36 @@ library(knitr)
 library(kableExtra)
 ```
 
+# Data Analysis
+
 Column
 -----------------------------------------------------------------------
 
-### Chart A
+### Count if it  is a paid course
 
-# Importing data from csv
 ```{r}
 dfRaw <- read_csv("Data/Data - DS C1 Course.csv")
 
 ```
 
-# Summarize the data
 ```{r}
 
-head(dfRaw)
+ df_paid <- dfRaw %>% group_by(`Do you understand that this is a paid course ?...21`) %>%  count()
+
+ggplot(df_paid, aes(x = `Do you understand that this is a paid course ?...21`, y = n))+ geom_bar(stat = "identity", fill = "yellow")
 
 ```
+### Count of Age
+
+```{r}
+
+df_age <- dfRaw %>% group_by(Age) %>%  count()
+
+ggplot(df_age, aes(x = Age, y = n)) + geom_bar(stat = "identity", fill = "blue")
+
+```
+
+# Summary of Data 
 
 Column
 -----------------------------------------------------------------------
@@ -37,6 +50,8 @@ Column
 ### Chart B
 
 ```{r}
+
+head(dfRaw)
 
 ```
 
@@ -46,12 +61,14 @@ Column
 
 ```
 
+### Abdus's Flexdashboard
+
 Column
 -----------------------------------------------------------------------
-### Abdus's Flexdashboard
 
 
 ```{r}
+
 dfRaw %>% colnames()
 
 ```
@@ -63,10 +80,13 @@ dfRaw %>% colnames()
 dfRaw %>% group_by(Gender, Payment) %>% count() %>% kable()
 
 ```
-# Filtering of Data 
 
+# Tidy Pacakges Functions
+
+### Filter()
 
 ```{r}
+
 # filteirng the data of only male
 
 filter(dfRaw, Gender == "Male")
@@ -77,7 +97,7 @@ male <- filter(dfRaw, Gender == "Male")
 
 ```
 
-# Arranging data by Age & Gender
+### Arrange()
 
 ```{r}
 
@@ -88,20 +108,22 @@ tail(arrangeByAgeGender)
 
 ```
 
-# Select function
+### Select()
 
 ```{r}
 selectedVars <- select(dfRaw, Gender, Age) %>% kable()
 selectedVars
 
 ```
-## Mutate
+### Mutate()
 
 ```{r}
+
 mutateAppend <- mutate(dfRaw, binary = if_else(Gender == "Male", true = 1, false = 0))
 
+
 ```
-## Grouby & Summarize
+### Grouby() & Summarize()
 
 ```{r}
 dfRaw$Age <- as.numeric(dfRaw$Age)
