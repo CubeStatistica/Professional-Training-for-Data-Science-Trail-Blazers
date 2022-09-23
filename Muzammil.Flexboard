@@ -1,0 +1,55 @@
+---
+title: "Untitled"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+library(knitr)
+#library(KableExtra)
+```
+
+
+
+### Chart A
+Column 
+-----------------------------------------------------------------------
+## importing data set
+```{r}
+dfRaw <- read.csv("Data/Data - DS C1 Course.csv")
+```
+
+Column 
+-----------------------------------------------------------------------
+
+## summarize the data
+```{r}
+head(dfRaw)
+```
+
+
+Column 
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+```
+
+### Chart C
+
+```{r}
+```
+
+Column 
+-----------------------------------------------------------------------
+### Muzammil's Flexdashboard
+
+```{r}
+ggplot(course_data, aes(Age, "Which Country are you currently residing in?"))+
+  geom_point()
+```
