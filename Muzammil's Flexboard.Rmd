@@ -52,7 +52,15 @@ Column
 # Muzammil's Flexdashboard
 
 ```{r}
-ggplot(ds_course_data, aes(Age, "Which Country are you currently residing in?"))+
-  geom_point()
+
+ds_course_data %>% colnames()
+
+```
+
+
+```{r}
+
+ds_course_data %>% group_by(Do.you.understand.that.this.is.a.paid.course..) %>% summarize(n=n())
+
 ```
 
