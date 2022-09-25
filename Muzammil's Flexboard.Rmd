@@ -9,6 +9,8 @@ output:
 ```{r setup, include=FALSE}
 library(flexdashboard)
 library(tidyverse)
+library(knitr)
+library(kableExtra)
 ```
 
 Column
@@ -56,11 +58,13 @@ Column
 ds_course_data %>% colnames()
 
 ```
+# Statistics
+
 
 
 ```{r}
 
-ds_course_data %>% group_by(Do.you.understand.that.this.is.a.paid.course..) %>% summarize(n=n())
+ds_course_data %>% group_by(Do.you.understand.that.this.is.a.paid.course..) %>% count() %>% kable()
 
 ```
 
