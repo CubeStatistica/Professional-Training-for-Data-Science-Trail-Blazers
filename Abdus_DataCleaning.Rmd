@@ -1,0 +1,64 @@
+---
+title: "Data Cleaning"
+author: "Abdus Samad"
+date: "2022-09-25"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+```{r pacakages, warning=FALSE}
+library(tidyverse)
+library(lubridate)
+
+```
+
+```{r}
+
+ dataRaw <- read_csv("Data/Data - DS C1 Course.csv")
+ head(dataRaw, n = 10)
+```
+```{r variables rename}
+
+dataRenamed <- dataRaw %>% rename("Id"= "Student ID", "Date_time" = "Timestamp", "Qr_Uni_Col" = "Name of University or College currently or previously attended?")
+
+# check for renaming
+names(dataRenamed[1:10])
+```
+
+```{r variables selection}
+dataselected <- select(dataRenamed, Id, Date_time, Qr_Uni_Col)
+
+# MAKING id AS row name
+
+dataselected <- column_to_rownames(dataselected, var= "Id")
+
+head(dataselected)
+
+```
+
+```{r}
+# Converting time column to date time format
+dataselected$Date_time <- lubridate::ymd_hms(dataselected$Date_time)
+
+# Separating date and time into different column
+dataselected <- tidyr::separate(dataselected, Date_time, c("Date", "Time"), sep = " ")
+
+dataselected$Date <- lubridate::ymd(dataselected$Date)
+
+head(dataselected)
+```
+
+```{r grouped the data}
+# now we grouped the data by day to check how many registeration done per on each day
+
+groupeddata <- dataselected %>% 
+  group_by(day <- lubridate:: floor_date(x= Date , unit= 'day')) %>% 
+  summarize(grouped = n())
+
+```
+
