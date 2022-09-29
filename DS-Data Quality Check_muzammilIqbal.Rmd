@@ -1,0 +1,173 @@
+---
+title: "CS-DS-Data Quality Check"
+author: "Syed Muzammil Iqbal"
+date: "2022-09-26"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library("reticulate")
+```
+
+## Importing the data
+
+```{r}
+
+ds_course_data = read.csv("Data/Data - DS C1 Course.csv")
+```
+
+## Summary of Data
+
+
+Importing libraries
+```{python}
+
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+from collections import Counter
+
+ds_course_data = pd.read_csv("Data/Data - DS C1 Course.csv")
+ds_course_data.head()
+
+```
+
+Summary Stats
+
+```{python}
+##shape of the data
+ds_course_data.shape
+```
+```{python}
+##attributes of the data
+ds_course_data.columns
+
+```
+```{python}
+##information of the data
+ds_course_data.info()
+
+```
+
+## Data Quality Check
+
+Missing Values percentage
+```{python}
+
+
+missing_values_series=ds_course_data.isnull().sum()
+missing_columns=missing_values_series[missing_values_series>0]
+missing_columns_df=(missing_columns.sort_values()/ds_course_data.shape[0])*100
+x_col="Attributes"
+y_col="Missing Pct %"
+missing_columns_df=pd.DataFrame(data=np.column_stack([missing_columns_df.index,missing_columns_df.values]),columns=[x_col,y_col])
+missing_columns_df
+
+```
+
+## Duplicate unique values in columns
+
+Which City are you currently residing in?
+```{python}
+
+# Which City are you currently residing in?
+s= ds_course_data["Which City are you currently residing in?"].unique()
+
+df= pd.DataFrame(s)
+df= df.dropna()
+df= df.applymap(str.lower)
+
+df=df.value_counts()
+df_city=df[df>1]
+
+
+# Which Country are you currently residing in?
+s= ds_course_data["Which Country are you currently residing in?"].unique()
+
+df= pd.DataFrame(s)
+df= df.dropna()
+df= df.applymap(str.lower)
+
+df=df.value_counts()
+df_country=df[df>1]
+
+
+# Do you understand that this is a paid course ?
+s= ds_course_data["Do you understand that this is a paid course ?"].unique()
+
+df= pd.DataFrame(s)
+df= df.dropna()
+df= df.applymap(str.lower)
+
+df=df.value_counts()
+df_paid=df[df>1]
+
+
+# Payment
+s= ds_course_data["Payment"].unique()
+
+df= pd.DataFrame(s)
+df= df.dropna()
+df= df.applymap(str.lower)
+
+df=df.value_counts()
+df_payment=df[df>1]
+
+
+# Payment Receipt Sent
+s= ds_course_data["Payment Receipt Sent"].unique()
+
+df= pd.DataFrame(s)
+df= df.dropna()
+df= df.applymap(str.lower)
+
+df=df.value_counts()
+df_receipt=df[df>1]
+```
+
+
+```{python}
+
+nominal_list = []
+for i in ds_course_data.columns.tolist():
+    if (ds_course_data[i].dtype=='object'):
+        nominal_list.append(i)
+
+values=[]        
+for i in nominal_list:
+  s= ds_course_data[i].unique()
+  df= pd.DataFrame(s)
+  df= df.dropna()
+  df= df.applymap(str.lower)
+  df=df.value_counts()
+  df=df[df>1]
+  len(df)
+  values.append(len(df))
+  
+  
+duplicates = pd.DataFrame({'Column names': nominal_list,
+ 'Number of duplicates': values})
+ 
+ 
+duplicates=duplicates[duplicates['Number of duplicates'] >0 ]
+duplicates
+
+
+```
+
+```{python}
+
+columns=ds_course_data.columns
+
+for i in columns:
+  ds_course_data[i].unique()
+  
+
+
+
+```
+
