@@ -16,7 +16,7 @@ library(kableExtra)
 Column
 -----------------------------------------------------------------------
 
-### Chart A
+### Summary of Data
 
 # Import data
 
@@ -26,7 +26,7 @@ ds_course_data <- read.csv("Data/Data - DS C1 Course.csv")
 
 ```
 
-# Summary of Data
+## Summary of Data
 ```{r}
 
 head(ds_course_data)
