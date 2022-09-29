@@ -1,5 +1,5 @@
 ---
-title: "Gourse Data"
+title: "Course Data"
 output: 
   flexdashboard::flex_dashboard:
     orientation: columns
@@ -15,37 +15,69 @@ library(plotly)
 ```
 
 ```{r}
-Data <- read.csv("Data/Data - DS C1 Course.csv")
+Data <- read.csv("Data/Clean_Data DS C1 Course.csv")
 
-Categorical.Variables = c("Gender","Do.you.have.a.LinkedIn.Account.","Age")
+Categorical.Variables = c("Gender","Country","City","Payment")
+Numerical.Variables = c("Age")
 ```
 
-Column {.sidebar data-width:300}
+Column {.sidebar data-width:200}
 -----------------------------------------------------------------------
 
 ```{r}
 selectInput("categorical_variable", label = "Select Categorical Variable:", choices = Categorical.Variables)
 
+selectInput("numerical_variable", label = "Select Numerical Variable:", choices = Numerical.Variables)
+
 ```
 
 
-Column {data-width=400}
+Column {data-width=800}
 -----------------------------------------------------------------------
 
-### Chart A
+### **Box plot** shows the relationship between categorical and numeric variables
 
 ```{r}
+
+renderPlotly({
+   plot_ly(Data,
+              x = ~Data[[input$numerical_variable]],
+              color = ~Data[[input$categorical_variable]],
+              colors = "Paired",
+              type = "box") %>%
+  layout(title = "",
+         xaxis = list(title = "" ,
+                      zeroline = FALSE))
+})
+
 ```
 
-Column {data-width=400}
+Column {data-width=600}
 -----------------------------------------------------------------------
 
-### Chart B
+### **Bar chart** shows the distribution of categorical veriable
 
 ```{r}
+renderPlotly({
+  Data %>%
+    count(var = Data[[input$categorical_variable]], name = "count") %>%
+    plot_ly( x = ~var, y = ~ count, type = "bar", marker = list(color = '#008ae6',
+                           line = list(color = '#008ae6', width = 2)), hoverinfo = "x+y") %>%
+    add_text(text = ~paste0( " (",   scales::percent(count/sum(count)),")"), 
+           textposition = "bottom", 
+           textfont = list(size = 12, color = "white"), 
+           showlegend = FALSE) %>%
+    layout(xaxis = list(title = ""), yaxis = list(title = ""))
+    
+})
 ```
 
-### Chart C
+### **Histogram** shows the distribution of numeric variable
 
 ```{r}
+renderPlotly({
+  plot_ly(x = Data[[input$numerical_variable]], type = "histogram",  marker = list(color = "#008ae6",
+                            line = list(color = "darkgray",
+                                        width = 1)))
+})
 ```
