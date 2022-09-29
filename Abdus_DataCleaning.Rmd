@@ -11,7 +11,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 
-```{r pacakages, warning=FALSE}
+```{r pacakages, warning=FALSE, include = FALSE}
 library(tidyverse)
 library(lubridate)
 
@@ -31,7 +31,7 @@ names(dataRenamed[1:10])
 ```
 
 ```{r variables selection}
-dataselected <- select(dataRenamed, Id, Date_time, Qr_Uni_Col)
+dataselected <- select(dataRenamed, Id, Date_time, Qr_Uni_Col, Payment)
 
 # MAKING id AS row name
 
@@ -43,12 +43,10 @@ head(dataselected)
 
 ```{r}
 # Converting time column to date time format
-dataselected$Date_time <- lubridate::ymd_hms(dataselected$Date_time)
 
 # Separating date and time into different column
 dataselected <- tidyr::separate(dataselected, Date_time, c("Date", "Time"), sep = " ")
 
-dataselected$Date <- lubridate::ymd(dataselected$Date)
 
 head(dataselected)
 ```
@@ -57,8 +55,60 @@ head(dataselected)
 # now we grouped the data by day to check how many registeration done per on each day
 
 groupeddata <- dataselected %>% 
-  group_by(day <- lubridate:: floor_date(x= Date , unit= 'day')) %>% 
+  group_by(Payment) %>% 
   summarize(grouped = n())
 
 ```
+```{r creating ggplot}
+
+ggplot(data = groupeddata, aes(x= Payment)) +
+  geom_bar(color = "red") +
+  xlab("Payment Status")
+  
+```
+# What is distribution of University
+
+```{r}
+dataselected %>% 
+  select(Qr_Uni_Col) %>% 
+  distinct() %>% 
+  count()
+
+```
+```{r}
+head(unique(x= dataselected$Qr_Uni_Col ))
+
+
+```
+we are cleaning the Qr_Uni_Col column to remvoe duplicates and make its consisitent
+
+```{r}
+datacategorized <- dataselected %>% 
+  mutate( 
+    Uni_col = case_when(
+    str_detect(
+      Qr_Uni_Col,
+      "Iba|Institue of Business Administration|IBA Karachi|iba karachi|BUSINESS ADMINISTRATION|INSTITUTE|") ~ "IBA",
+    str_detect(
+      Qr_Uni_Col,
+      "AZAM|Quaid I Azam University|Quiad e Azam University|Quiad-e-Azam University islamabad|Quiad e Azam University Islamabad|Quiad-I-Azam University|Quiad-i-Azam University Islamabad|Quaid i Azam university") ~ "QU",
+    str_detect(
+      Qr_Uni_Col,
+      "Sir Syed Univeristy of Engineering Technology|Sir syed univeristy of engineering & technology|Sir Syed Univeristy of engineering And technology|Sir Syed univeristy of engineering and technology|Sirsyed Univeristy of Engineering Technology|Sir syed Univeristy Of Engineering Technology|Sir Syed univeristy of engineering technology|Sir Syed Univeristy Engineering Technology") ~ "SYED",
+    str_detect(
+      Qr_Uni_Col,
+      "NED university|NED University of Engineering and Technology Karachi|NED|ned University")~"NED",
+    str_detect(Qr_Uni_Col, "iqra|IQRA|Iqra|iqra university") ~ "IQRA",
+    str_detect(Qr_Uni_Col, "Sindh") ~ "SMIU",
+    str_detect(Qr_Uni_Col, "Karachi|Univeristy of karachi") ~ "KU",
+    str_detect(Qr_Uni_Col, "Szabist") ~ "SZABIST",
+    str_detect(Qr_Uni_Col, "Management|management") ~ "IOBA",
+    str_detect(Qr_Uni_Col, "Univeristy of engineering and technology Peshawar") ~ "UET",
+    TRUE ~ Qr_Uni_Col
+   )
+ )
+
+```
+
+
 
