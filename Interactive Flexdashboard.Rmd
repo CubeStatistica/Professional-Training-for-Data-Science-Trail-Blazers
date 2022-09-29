@@ -1,0 +1,51 @@
+---
+title: "Gourse Data"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+  runtime: shiny 
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(shiny)
+library(dplyr)
+library(plotly)
+```
+
+```{r}
+Data <- read.csv("Data/Data - DS C1 Course.csv")
+
+Categorical.Variables = c("Gender","Do.you.have.a.LinkedIn.Account.","Age")
+```
+
+Column {.sidebar data-width:300}
+-----------------------------------------------------------------------
+
+```{r}
+selectInput("categorical_variable", label = "Select Categorical Variable:", choices = Categorical.Variables)
+
+```
+
+
+Column {data-width=400}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+```
+
+Column {data-width=400}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+```
+
+### Chart C
+
+```{r}
+```
