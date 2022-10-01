@@ -9,40 +9,36 @@ output:
 ```{r setup, include=FALSE}
 library(flexdashboard)
 library(tidyverse)
+library(reticulate)
+library(dplyr)
+library(plotly)
 ```
 
-Column
+
+```{r}
+
+ds_course_data <- read_csv("Data/Data - DS C1 Course.csv")
+
+```
+
+Column {data-width=800}
 -----------------------------------------------------------------------
+# Data Quality Issues
 
-### Chart A
+### Missing Values
 
-# Import data
-
-```{r}
-
-ds_course_data <- read.csv("Data/Data - DS C1 Course.csv")
-
-```
-
-# Summary of Data
-```{r}
-
-head(ds_course_data)
-
-```
-
-Column
------------------------------------------------------------------------
-
-### Chart B
 
 ```{r}
+# missing values percentage
 
-```
+p <- function(x) {sum(is.na(x))/length(x)*100}
+missing_values_percent <- apply(ds_course_data,2,p)
 
-### Chart C
 
-```{r}
+missing_column <- as.data.frame(missing_values_percent)
+missing_df <- filter(missing_column, missing_column>0)
+
+missing_df
 
 ```
 
